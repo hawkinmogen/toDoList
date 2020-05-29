@@ -1,4 +1,4 @@
-function test(){
+function createButton(){
 
     if(valid==true){
 
@@ -27,15 +27,16 @@ function test(){
     }
     
     holder.appendChild(x);
+    
     }
 
 }
 
 function validateItems(){
     var days = document.getElementById("daysInput").value;
-
+    var task = document.getElementById("textInput").value;
     if(days ==""){
-        alert("Please enter a value for 'Days to comeplete'.");
+        alert("Please enter a value for 'Days To Comeplete' field.");
         return valid=false;
     }
 
@@ -44,9 +45,17 @@ function validateItems(){
         return valid=false;
     }
 
+    else if (task ==""){
+        alert("Please fill out the 'Task' field.");
+        return valid=false;
+    }
+
     else{
         return valid=true;
     }
 }
 
-document.getElementById("submit").onclick = function(){test()};
+function submitForm() {
+    document.getElementById('textInput').value='';
+    document.getElementById('daysInput').value='';
+}
